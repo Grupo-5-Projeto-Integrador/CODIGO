@@ -1,0 +1,8 @@
+.env
+*.exe
+test_bin*
+README.md
+test_login.json
+migrations/
+cmd/
+uploads/

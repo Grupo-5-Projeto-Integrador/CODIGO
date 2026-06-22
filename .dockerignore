@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.git/
+.env
+*.log
+*.tmp
+*.pdf
+
+# Backend não entra no build do frontend
+backend/
+
+# Arquivos de dev local
+docker-compose.yml
+Dockerfile.frontend
+nginx.conf

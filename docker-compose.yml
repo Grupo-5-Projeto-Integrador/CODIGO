@@ -1,0 +1,79 @@
+# ============================================================
+# docker-compose.yml — Flamboyant Shopping / Grupo 5
+#
+# OPÇÃO 1 — só banco de dados (recomendado para dev):
+#   docker-compose up -d db
+#   cd backend && go run main.go    (terminal 1)
+#   npm run dev                     (terminal 2, na raiz)
+#   Acesse http://localhost:5173
+#
+# OPÇÃO 2 — stack completo (tudo via Docker):
+#   docker-compose up --build
+#   Acesse http://localhost:5173
+#
+# Resetar banco (apaga TODOS os dados):
+#   docker-compose down -v
+# ============================================================
+
+services:
+
+  # ── PostgreSQL ────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: jpmall_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-flamboyant_db}"
+      POSTGRES_DB: jp_mall
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data3:/var/lib/postgresql/data
+      # Na primeira inicialização, executa os scripts em ordem alfabética:
+      # 001_schema.sql → 002_seed_stores.sql → 003_seed_notifications.sql → 004_claim_notifications.sql
+      - ./database:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d jp_mall"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # ── Backend Go ────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jpmall_backend
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: "${DB_PASSWORD:-flamboyant_db}"
+      DB_NAME: jp_mall
+      DB_SSLMODE: disable
+      BACKEND_PORT: "3001"
+      JWT_SECRET: "flamboyant_docker_dev_secret_troque_em_producao"
+      JWT_EXPIRES_IN: 24h
+      SMTP_ENABLED: "false"
+    ports:
+      - "3001:3001"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ── Frontend (build estático servido via nginx) ───────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: jpmall_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data3:

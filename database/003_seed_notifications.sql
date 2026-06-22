@@ -1,0 +1,31 @@
+-- =============================================
+-- 003_seed_notifications.sql — Flamboyant Shopping / Grupo 5
+-- Execute após 001_schema.sql
+-- =============================================
+--
+-- Notificações demo removidas para entrega final.
+-- A tabela 'notifications' nasce vazia intencionalmente.
+-- Notificações são criadas apenas por eventos reais do sistema:
+--   - Novo sinistro registrado
+--   - Link de WhatsApp gerado
+--   - Alteração de status
+--   - Edição de contato de lojista
+--
+-- Para inserir notificações de demonstração manualmente (opcional):
+--
+-- INSERT INTO notifications (title, message, type, priority, claim_id, is_read) VALUES
+-- (
+--     'Sinistro de Alta Gravidade',
+--     'C&A — Princípio de incêndio em reator de luminária, contido pela brigada.',
+--     'sinistro', 'alta', NULL, false
+-- ),
+-- (
+--     'Sinistro Registrado',
+--     'McDonald''s — Vidro da vitrine trincado após impacto acidental.',
+--     'sinistro', 'normal', NULL, false
+-- ),
+-- (
+--     'Alerta de Manutenção',
+--     'Centauro — Gotejamento sob a pia da copa devido a desgaste no sifão.',
+--     'sistema', 'normal', NULL, true
+-- );

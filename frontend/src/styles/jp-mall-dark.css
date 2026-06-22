@@ -1,0 +1,194 @@
+/* JP Mall — Dark Mode Premium Adaptive Layer (COLORS_DARK palette)
+   Base #08090D · Surface #0F111A · Cards #141722 · Borders #1E2230
+   Inputs #141722 · Primary Rose #F87171 · Accent Gold #D4A96A
+   Text #F3F4F6/#9CA3AF/#6B7280 · Success #10B981 · Warning #F59E0B */
+
+.dark body,
+.dark {
+  color-scheme: dark;
+}
+
+/* Page shell & global layout dark bg */
+.dark .bg-\[\#F7F4EF\] { background-color: #08090D !important; }
+.dark .bg-\[\#FAF7F2\] { background-color: #0F111A !important; }
+.dark .bg-\[\#F5E9D7\] { background-color: rgba(212, 169, 106, 0.08) !important; }
+
+/* Card surfaces */
+.dark .bg-white { background-color: #141722 !important; }
+
+/* Borders */
+.dark .border-\[\#E8DCCB\] { border-color: #1E2230 !important; }
+.dark .border-gray-100 { border-color: #1E2230 !important; }
+.dark .border-gray-200 { border-color: #1E2230 !important; }
+.dark .divide-\[\#E8DCCB\] > * + * { border-color: #1E2230 !important; }
+.dark .divide-gray-100 > * + * { border-color: #1E2230 !important; }
+.dark .divide-gray-50 > * + * { border-color: rgba(30, 34, 48, 0.3) !important; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   SPECIFIC SIDEBAR OVERRIDES (To fully neutralize bright red sidebar)
+   ────────────────────────────────────────────────────────────────────────── */
+.dark .sidebar-container,
+.dark .sidebar-container.bg-\[\#8B1A1A\] {
+  background-color: #0F111A !important;
+  border-right: 1px solid #1E2230 !important;
+}
+
+/* Active submenu wrappers */
+.dark .sidebar-container .bg-\[\#701515\] {
+  background-color: #08090D !important;
+  border-top: 1px solid rgba(30, 34, 48, 0.4) !important;
+  border-bottom: 1px solid rgba(30, 34, 48, 0.4) !important;
+}
+
+/* Main menu items active / expanded states */
+.dark .sidebar-container .bg-\[\#A52222\] {
+  background-color: #141722 !important;
+  color: #F87171 !important;
+}
+.dark .sidebar-container .hover\:bg-\[\#A52222\]:hover {
+  background-color: #1E2230 !important;
+  color: #FFFFFF !important;
+}
+
+/* Active sub-item override */
+.dark .sidebar-subitem-active,
+.dark .sidebar-subitem-active.bg-\[\#8B1A1A\] {
+  background-color: #141722 !important;
+  color: #F87171 !important;
+  border-left-color: #F87171 !important;
+}
+
+/* Hover sub-items */
+.dark .sidebar-container .hover\:bg-\[\#8B1A1A\]:hover {
+  background-color: #1E2230 !important;
+  color: #FFFFFF !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   BRAND RED OVERRIDES (Soothed crimson rose for dark mode)
+   ────────────────────────────────────────────────────────────────────────── */
+.dark .text-\[\#8B1A1A\] { color: #F87171 !important; }
+.dark .bg-\[\#8B1A1A\] { background-color: #B91C1C !important; color: #FFFFFF !important; }
+.dark .hover\:bg-\[\#701515\]:hover { background-color: #DC2626 !important; }
+.dark .hover\:bg-\[\#8B1A1A\]:hover { background-color: rgba(248, 113, 113, 0.12) !important; }
+.dark .border-\[\#8B1A1A\] { border-color: #EF4444 !important; }
+.dark .focus\:ring-\[\#8B1A1A\]:focus { --tw-ring-color: rgba(239, 68, 68, 0.25) !important; }
+.dark .focus\:border-\[\#8B1A1A\]:focus { border-color: #EF4444 !important; }
+.dark .hover\:text-\[\#8B1A1A\]:hover { color: #F87171 !important; }
+.dark .group:hover .group-hover\:text-\[\#8B1A1A\] { color: #F87171 !important; }
+.dark .group:hover .group-hover\:border-\[\#8B1A1A\] { border-color: #EF4444 !important; }
+
+/* Text greys aligned with premium neutral-slate standards */
+.dark .text-gray-900 { color: #F3F4F6 !important; }
+.dark .text-gray-800 { color: #E5E7EB !important; }
+.dark .text-gray-700 { color: #D1D5DB !important; }
+.dark .text-gray-600 { color: #9CA3AF !important; }
+.dark .text-gray-500 { color: #9CA3AF !important; }
+.dark .text-gray-400 { color: #6B7280 !important; }
+.dark .text-gray-300 { color: #4B5563 !important; }
+
+/* Cream/gold soft surfaces -> accent gold */
+.dark .bg-\[\#FAF3E2\] { background-color: rgba(212, 169, 106, 0.10) !important; }
+.dark .bg-\[\#F1E2BF\] { background-color: rgba(212, 169, 106, 0.20) !important; }
+.dark .from-\[\#FAF3E2\] { --tw-gradient-from: rgba(212, 169, 106, 0.10) !important; }
+.dark .to-\[\#F1E2BF\] { --tw-gradient-to: rgba(212, 169, 106, 0.20) !important; }
+.dark .from-\[\#F5E9D7\] { --tw-gradient-from: rgba(212, 169, 106, 0.10) !important; }
+.dark .to-\[\#E8DCCB\] { --tw-gradient-to: #1E2230 !important; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   SOOTHED SEVERITY / STATUS HELPER CARDS (Eyes-friendly, no glowing pastels)
+   ────────────────────────────────────────────────────────────────────────── */
+.dark .bg-yellow-50 { background-color: rgba(245, 158, 11, 0.08) !important; }
+.dark .border-yellow-100 { border-color: rgba(245, 158, 11, 0.20) !important; }
+.dark .border-yellow-200 { border-color: rgba(245, 158, 11, 0.20) !important; }
+.dark .text-yellow-700 { color: #F59E0B !important; }
+.dark .text-yellow-800 { color: #F59E0B !important; }
+.dark .hover\:bg-yellow-50:hover { background-color: rgba(245, 158, 11, 0.12) !important; }
+
+.dark .bg-green-50 { background-color: rgba(16, 185, 129, 0.08) !important; }
+.dark .border-green-100 { border-color: rgba(16, 185, 129, 0.20) !important; }
+.dark .border-green-200 { border-color: rgba(16, 185, 129, 0.20) !important; }
+.dark .text-green-700 { color: #10B981 !important; }
+.dark .text-green-800 { color: #10B981 !important; }
+.dark .hover\:bg-green-50:hover { background-color: rgba(16, 185, 129, 0.12) !important; }
+
+.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.06) !important; }
+.dark .border-red-100 { border-color: rgba(239, 68, 68, 0.20) !important; }
+.dark .border-red-200 { border-color: rgba(239, 68, 68, 0.20) !important; }
+.dark .text-\[\#D93030\] { color: #F87171 !important; }
+.dark .border-\[\#D93030\] { border-color: #EF4444 !important; }
+.dark .hover\:bg-red-50:hover { background-color: rgba(239, 68, 68, 0.10) !important; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   NEUTRALIZED BLUE CHECKBOX CONTAINERS (To fully eliminate light blue/white glare)
+   ────────────────────────────────────────────────────────────────────────── */
+.dark .bg-blue-50 { background-color: #141722 !important; }
+.dark .border-blue-100 { border-color: #1E2230 !important; }
+.dark .text-blue-700 { color: #60A5FA !important; }
+.dark .hover\:bg-blue-50:hover { background-color: #1E2230 !important; }
+
+/* Standard severity / status pastel chips */
+.dark .bg-blue-100 { background-color: rgba(59, 130, 246, 0.12) !important; }
+.dark .text-blue-800 { color: #60A5FA !important; }
+.dark .border-blue-200 { border-color: rgba(59, 130, 246, 0.25) !important; }
+
+.dark .bg-amber-100 { background-color: rgba(245, 158, 11, 0.12) !important; }
+.dark .text-amber-800 { color: #F59E0B !important; }
+.dark .border-amber-200 { border-color: rgba(245, 158, 11, 0.25) !important; }
+
+.dark .bg-emerald-100 { background-color: rgba(16, 185, 129, 0.12) !important; }
+.dark .text-emerald-800 { color: #10B981 !important; }
+.dark .border-emerald-200 { border-color: rgba(16, 185, 129, 0.25) !important; }
+
+.dark .bg-red-100 { background-color: rgba(239, 68, 68, 0.12) !important; }
+.dark .text-red-800 { color: #FCA5A5 !important; }
+.dark .border-red-200 { border-color: rgba(239, 68, 68, 0.25) !important; }
+
+/* Status Concluído (custom badge bg-[#F5E9D7] text-[#8B1A1A] border-[#E8DCCB] light theme) */
+.dark .bg-\[\#F5E9D7\] { background-color: rgba(239, 68, 68, 0.12) !important; }
+.dark .text-\[\#8B1A1A\] { color: #F87171 !important; }
+.dark .border-\[\#E8DCCB\] { border-color: rgba(239, 68, 68, 0.25) !important; }
+
+/* Form controls */
+.dark input, .dark select, .dark textarea {
+  background-color: #141722 !important;
+  color: #F3F4F6 !important;
+  border-color: #1E2230 !important;
+}
+.dark input::placeholder, .dark textarea::placeholder { color: #6B7280 !important; }
+
+/* Recharts legibility */
+.dark .recharts-cartesian-grid line { stroke: rgba(255, 255, 255, 0.05) !important; }
+.dark .recharts-text { fill: #9CA3AF !important; }
+.dark .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: #0F111A !important;
+  border-color: #1E2230 !important;
+  color: #F3F4F6 !important;
+}
+
+/* Hover overrides */
+.dark .hover\:bg-white:hover { background-color: #0F111A !important; }
+.dark .hover\:bg-gray-50:hover { background-color: rgba(255, 255, 255, 0.04) !important; }
+.dark .hover\:bg-gray-100:hover { background-color: rgba(255, 255, 255, 0.06) !important; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   ELIMINATE PURPLE HUES
+   Replace hardcoded values (#252545, #2a2a4a, #1a1a2e, #2A2A4A) with matte obsidian.
+   ────────────────────────────────────────────────────────────────────────── */
+.dark .bg-\[\#252545\] { background-color: #0F111A !important; }
+.dark .dark\:bg-\[\#252545\] { background-color: #0F111A !important; }
+.dark tr.dark\:bg-\[\#252545\] { background-color: #0F111A !important; }
+.dark tr.bg-\[\#E8DCCB\]\/50 { background-color: #0F111A !important; }
+
+.dark .bg-\[\#1a1a2e\] { background-color: #0F111A !important; }
+.dark .dark\:bg-\[\#1a1a2e\] { background-color: #0F111A !important; }
+
+.dark .bg-\[\#2a2a4a\] { background-color: #141722 !important; }
+.dark .dark\:bg-\[\#2a2a4a\] { background-color: #141722 !important; }
+.dark .bg-\[\#2A2A4A\] { background-color: #141722 !important; }
+.dark .dark\:bg-\[\#2A2A4A\] { background-color: #141722 !important; }
+
+.dark .hover\:bg-\[\#2A2A4A\]:hover { background-color: #1B1E2B !important; }
+.dark .dark\:hover\:bg-\[\#2A2A4A\]:hover { background-color: #1B1E2B !important; }
+.dark .hover\:bg-\[\#2a2a4a\]:hover { background-color: #1B1E2B !important; }
+.dark .dark\:hover\:bg-\[\#2a2a4a\]:hover { background-color: #1B1E2B !important; }

@@ -1,0 +1,39 @@
+# Dependências Node
+node_modules/
+frontend/node_modules/
+
+# Build frontend
+dist/
+frontend/dist/
+build/
+
+# Build Go
+backend/backend
+backend/backend.exe
+backend/*.exe
+backend/test_bin*
+
+# Variáveis de ambiente (contêm senhas — NUNCA versionar)
+.env
+*.env
+backend/.env
+frontend/.env
+!**/.env.example
+
+# Garantir que assets públicos (logos) sejam versionados
+!public/*.png
+!public/*.svg
+!src/assets/*.png
+!src/assets/*.svg
+
+# Logs e temporários
+*.log
+*.tmp
+tmp/
+
+# PDFs gerados localmente
+*.pdf
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
