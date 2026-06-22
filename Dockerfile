@@ -28,8 +28,11 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.render.conf /etc/nginx/conf.d/default.conf.template
 
 # Render injeta PORT em runtime; substitui no template antes de iniciar o nginx.
-# Valores padrão garantem que o nginx suba mesmo sem BACKEND_URL definida ainda.
+# BACKEND_HOST é derivado de BACKEND_URL (remove o scheme) para uso no SNI.
 CMD ["/bin/sh", "-c", \
   "export PORT=${PORT:-80} BACKEND_URL=${BACKEND_URL:-http://localhost:3001}; \
-   envsubst '${PORT} ${BACKEND_URL}' < /etc/nginx/conf.d/default.conf.template \
-   > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+   export BACKEND_HOST=${BACKEND_HOST:-$(echo $BACKEND_URL | sed 's|.*://||' | cut -d/ -f1)}; \
+   envsubst '${PORT} ${BACKEND_URL} ${BACKEND_HOST}' \
+     < /etc/nginx/conf.d/default.conf.template \
+     > /etc/nginx/conf.d/default.conf && \
+   nginx -g 'daemon off;'"]
